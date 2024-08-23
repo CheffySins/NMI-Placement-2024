@@ -101,5 +101,17 @@ A **Lower** thresholds mean that only very low variance segments (very little fl
 A **Higher** threshold allows segments with slightly higher variance to be included in the baseline, leading to a more inclusive baseline at the risk of including segments with significant variation.
 
 ## Peak Selection
+The peak selection process was pretty challenging. There are three methods of obtaining peaks:
+1. Manually, using an interactive py script
+2. Manually, by defining the peaks within the code
+3. Automatically.
+
+==Discuss all three later==
+
 ### Manual Peaks
+### Hard Coded Peaks
 ### Automatic Peaks
+
+## Molar Mass Calculations
+No Refractive Index (RI) detector, so will be using the UV detector data to calculate dn/dc
+## Hydrodynamic Radius ($R_h$) from Light Scattering
