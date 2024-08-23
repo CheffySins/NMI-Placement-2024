@@ -1,3 +1,4 @@
+# OLD NOTES
 ### Overview of Asymmetric Flow Field-Flow Fractionation (AF4)
 
 **Asymmetric Flow Field-Flow Fractionation (AF4)** is a powerful technique used for the separation and characterisation of macromolecules and nanoparticles. It is particularly useful in the field of nanotechnology and polymer science due to its gentle separation conditions and ability to work with a broad size range of particles. The fundamental principle of AF4 is the separation of particles based on their diffusion coefficients in a flow channel. A cross-flow field perpendicular to the direction of the channel flow forces particles of different sizes to different positions within the parabolic flow profile, leading to their separation. Larger particles, with lower diffusion coefficients, are pushed closer to the channel walls and elute later than smaller particles.
