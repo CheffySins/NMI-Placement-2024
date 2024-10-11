@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lab Book.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid@9.4.3/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="field-flow-fractionation-fff-project-lab-book">Field-Flow Fractionation (FFF) Project Lab Book</h1>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#h-overview">Project Overview</a></li>
+<li><a href="#indent">Indent</a></li>
+<li><a href="#center">Center</a></li>
+<li><a href="#h-ref">References</a></li>
+</ul>
+<h2 id="project-overview-h-overview">Project Overview {#h-overview}</h2>
+<blockquote>
+<p>references can be done using [^1] and [^1]: at the end of the doc</p>
+</blockquote>
+<p><strong>Project Title:</strong> Developing Software for Data Processing from Field-Flow Fractionation (FFF) / Asymmetric Flow Field-Flow Fractionation (AF4)</p>
+<p><strong>Project Descripton:</strong> This project involves developing software to process data from a Field-Flow Fractionation (FFF) instrument, which is used to derive the size distributions of particles in liquid suspensions. This coding-intensive project requires experience with Python or a similar programming language to effectively analyse, clean, and visualise experimental data.</p>
+<p>The team at NMI currently use Astra8 Software to do data analysis using their AF4 machine. This software acts as a kind of 'black box', in that obtaining fundamental proof of the algorithms / code used to do data treatment is either extremely difficult to obtain, or not possible (realistically). Additionally, the reports generated by Astra often contain too much non-useful information.</p>
+<p>Traceability is a foundational cornerstone of nanometrology (and metrology in general), and so, I've been tasked with creating an open source template that will do the required data treatment, while also giving greater flexibility to displaying only the data that is required for a specific kind of experiment or sequence.</p>
+<p>The order of treatments done by the team currently using Astra is:</p>
+<ol>
+<li>Despiking</li>
+<li>Baseline Selection</li>
+<li>Peak Definitions</li>
+<li>Molar Mass &amp; Radius from Light Scattering (LS) ==not using AF4==</li>
+<li>Hydrodynamic Radius $R_h$ from LS</li>
+<li>Distribution Analysis</li>
+</ol>
+<p>My goal is to write code that will do each of the above, both in that order, and individually. Once I've got together all of the equations and procedures required, I will transfer the code to Stata (provided by MQ), and then port into OriginLabs, which is the software that NMI staff have access to.</p>
+<p><strong>Location &amp; Supervisor:</strong> National Measurement Institute (NMI), Lindfield Laboratory. Supervised by Mar-Dean Du Plessis</p>
+<h2 id="executive-summary">Executive Summary</h2>
+<p>This lab book documents the development of a Python-based data processing software for the Field-Flow Fractionation (FFF) instrument utilised by the Nanometrology team at the National Measurement Institute (NMI). The FFF instrument is critical for deriving particle size distributions in liquid suspensions, an important aspect in nanoparticle characterisation. The focus of this placement was on Asymmetric Flow Field-Flow Fractionation (AF4), a specialised form of FFF. The software automates data processing tasks such as despiking, baseline correction, peak detection, and calculation of hydrodynamic radius. Calculating molar mass may be too difficult without an RI detector, and I have not done that yet but will attempt to if I have the capacity at the end. Preliminary results indicate significant improvements in efficiency and repeatability, enhancing NMI's capabilities in nanometrology by improving measurement accuracy and reducing manual workload.</p>
+<h2 id="introduction">Introduction</h2>
+<p>Field-Flow Fractionation (FFF) is a widely used technique in nanometrology for separating and analysing particles based on size, shape, and density (Quattrini et al., 2021). The technique is highly effective for characterising nanoparticles in liquid suspensions, providing detailed insights into critical properties such as particle size distribution (Quattrini et al., 2021). Accurate measurements are essential for research in fields such as material science, biotechnology, and pharmaceuticals (Till et al., 2014).</p>
+<p>At NMI, the Nanometrology team employs FFF instruments to support research and provide services for nanoparticle characterisation. However, the raw data generated by these instruments requires extensive manual processing, which is both labour-intensive and prone to inconsistencies. This project aims to automate the data processing pipeline using Python to enhance accuracy, repeatability, and efficiency, ultimately adding value to NMI’s capabilities by reducing human error and standardising data analysis.</p>
+<p>The specific focus of this project was on Asymmetric Flow Field-Flow Fractionation (AF4), a variant of FFF that uses a unique channel design to separate particles based on size. AF4 is particularly suited for analysing a wide range of particle sizes, from proteins to larger nanoparticles, making it a powerful tool in the field of nanometrology.</p>
+<h2 id="project-plan">Project Plan</h2>
+<h3 id="aims-and-objectives">Aims and Objectives</h3>
+<p>The primary goal of this project is to develop a robust software solution for processing data generated by the AF4 instrument, enabling accurate determination of particle size distributions in liquid suspensions. The specific objectives include:</p>
+<ul>
+<li>Developing Python-based software for data handling, including despiking, peak selection, baseline correction, and size distribution analysis.</li>
+<li>Automating key data processing tasks to reduce manual workload and standardise procedures.</li>
+<li>Enhancing the efficiency and repeatability of AF4 data analysis.</li>
+</ul>
+<h3 id="timeline">Timeline</h3>
+<blockquote>
+<p>This is a brief timeline and the tasks referenced  will be discussed further below.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Task(s)</th>
+<th>Image References</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Choose a project and familiarise myself with the theory</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>- Lab Safety Induction <br>- Prepare solution of isopropanol for AF4 machine to stay in over the weekend <br>- Read up on relevant sections of MD's thesis</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>- Attend NMI award ceremony (online)</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>- Work on finte tuning code for the project<br>- Attend High Voltage lab tour</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>- Analyse and compare experiment results between the DLS and AF4 machines to validate data<br>- Investigate inconsistencies with UV plot data from AF4<br>- Shadow MD in wet lab coffee riffing experiment (client work)</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>- Problem solving and troubleshooting issues and deviations in MADLS and DLS experiments</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="high-level-overview-and-background">High-Level Overview and Background</h2>
+<h3 id="field-flow-fractionation-fff-overview">Field-Flow Fractionation (FFF) Overview</h3>
+<p>Field-Flow Fractionation (FFF) is a technique that allows the separation, or fractionation, of particles and macromolecules based on differences in their size, shape, and density. Fractionation in this context refers to the process of separating components of a mixture so that particles of similar properties are grouped together. In FFF, a field is applied perpendicular to the direction of flow, creating a velocity gradient that enables the differentiation of particles.</p>
+<p>Field-Flow Fractionation (FFF) is a separation technique that allows the fractionation of particles and macromolecules based on differences in their hydrodynamic sizes. It works by applying a perpendicular field that forces particles towards the accumulation wall, creating a velocity gradient across the channel.</p>
+<ul>
+<li><strong>Types of FFF:</strong> Sedimentation, Thermal, Flow, Centrifugal and Electrical FFF.</li>
+<li><strong>FFF Instrument Components:</strong> Channel, flow pump, detector (e.g., Light Scattering, UV Absorbance).</li>
+<li><strong>Applications:</strong> Protein aggregation analysis, nanoparticle characterisation, and colloid stability studies.</li>
+</ul>
+<h3 id="asymmetric-flow-field-flow-fractionation-af4">Asymmetric Flow Field-Flow Fractionation (AF4)</h3>
+<p>Asymmetric Flow Field-Flow Fractionation (AF4) is a specific type of FFF that utilises an asymmetric channel, where only one wall allows cross-flow. This asymmetry creates a parabolic flow profile that enables highly efficient size-based separation of particles. AF4 is particularly useful for separating and analysing a wide range of particle sizes, from proteins and polymers to larger nanoparticles.</p>
+<ul>
+<li><strong>AF4 Channel Design:</strong> AF4 uses a semi-permeable membrane on one side of the channel, which allows the cross-flow to drive smaller particles closer to the accumulation wall while larger particles remain in faster-moving regions.</li>
+<li><strong>Applications:</strong> AF4 is ideal for nanoparticle characterisation, protein aggregation studies, and the analysis of complex colloidal systems.</li>
+</ul>
+<h3 id="key-concepts">Key Concepts</h3>
+<blockquote>
+<p>Maybe use following format</p>
+</blockquote>
+<p>Item
+: asdasd</p>
+<blockquote>
+<p>Do in alphabetical order</p>
+</blockquote>
+<p><strong>Hydrodynamic Radius $r_h$</strong>
+: Represents the effective radius of a particle in suspension as it experiences hydrodynamic drag, which can be used to determine particle size. It is defined using the <strong>Stokes-Einstein equation</strong></p>
+<p>: $$r_h = \frac{k_B T}{6 \pi \eta D}$$</p>
+<p>: Where $ k_B $ is the Boltzmann constant, $ T $ is the absolute temperature, $ \eta $ is the viscosity of the medium, and $ D $ is the diffusion coefficient</p>
+<p><strong>Hydrodynamic Diameter $d_h$</strong>
+: Twice the hydrodynamic radius ($ d_h = 2 r_h $).</p>
+<p><strong>Radius of Gyration $r_g$</strong>
+: A measure of the distribution of a particle’s mass around its center of mass. For larger molecules ($&gt;10 \text{nm}$), it can be determined using multi-angle light scattering (MALS). The relation for $r_g$ in terms of molecular weight $M$ and the scattering intensity $I$ is
+: $${R_g}^2 = \frac{I(q)}{q^2}$$</p>
+<p>: where $ q $ is the scattering vector.</p>
+<p><strong>Recovery % (from UV Data)</strong>
+: Used to quantify the amount of sample that has been successfully eluted and detected. It is calculated using:</p>
+<p>: $$\text{Recovery %} = \left( \frac{\text{Amount detected}}{\text{Initial amount}} \right) \times 100$$</p>
+<p><strong>Burchard Stockmayer Shape Factor</strong>
+: A factor that relates the radius of gyration to the hydrodynamic radius and provides insight into the shape of the macromolecule</p>
+<p>: $$\text{Shape Factor} = \frac{Rg}{Rh}$$</p>
+<p><strong>Autocorrelation Function $g_2$</strong>
+: ==explain==</p>
+<p><strong>Electric Field Autocorrelation Function $g_1$</strong>
+: ==explain==</p>
+<p><strong>Exponential Decay $\Gamma$</strong>
+: ==explain==</p>
+<p><strong>Scattering Vector $q$</strong>
+: ==explain==</p>
+<p><strong>Refractive Index $n$</strong>
+: ==explain==</p>
+<p><strong>$dn/dc$</strong>
+: ==explain==</p>
+<p><strong>Viscosity  $\eta$</strong>
+: ==explain==</p>
+<p><strong>Rayleigh Ratio $R_{std}(\theta)$</strong>
+: ==explain==</p>
+<p><strong>Detector Cosntant $K_{detector}(\theta)$</strong>
+: ==explain==</p>
+<p><strong>Absorbance  $A$</strong>
+: ==explain==</p>
+<p><strong>Molar Extinction Coefficient $\epsilon$</strong>
+: ==explain==</p>
+<p><strong>Optical Constant  $K$</strong>
+: ==explain==</p>
+<p><strong>Rayleigh Scattering</strong>
+: ==explain==</p>
+<p><strong>Form Factor $P(\theta)$</strong>
+: ==explain==</p>
+<ul>
+<li><strong>Peak Detection:</strong> ==maybe move to python section??== Identifies significant features in the scattering data to understand particle distribution behaviour.</li>
+</ul>
+<blockquote>
+<p>==What else???==</p>
+</blockquote>
+<h2 id="fff--af4-machine-technical-term-and-component-definitions">FFF / AF4 Machine Technical Term and Component Definitions</h2>
+<h3 id="software">Software</h3>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Elution</strong></td>
+<td>In FFF, elution refers to the process where separated particles exit the channel. Smaller particles typically elute later due to slower diffusion rates in AF4 systems.</td>
+</tr>
+<tr>
+<td><strong>Focus</strong></td>
+<td>A step where the sample is concentrated at a specific point in the channel by applying flows from opposite directions, positioning the particles before separation.</td>
+</tr>
+<tr>
+<td><strong>Focus Inject</strong></td>
+<td>A combined step where the sample is injected and simultaneously focused. The sample is introduced into the channel and pushed to the focus area, preparing it for separation.</td>
+</tr>
+<tr>
+<td><strong>Elution Inject</strong></td>
+<td>Involves injecting the sample into the channel specifically for the elution phase. It follows the focus phase and marks the start of particle separation and elution.</td>
+</tr>
+<tr>
+<td><strong>Cross Flow</strong></td>
+<td>In AF4, cross flow is a perpendicular flow applied across the channel width. It pushes particles toward the channel walls, creating a size-based separation.</td>
+</tr>
+<tr>
+<td><strong>Channel Flow</strong></td>
+<td>The main flow that moves the sample down the length of the channel toward the outlet, carrying particles through the channel for separation by cross flow.</td>
+</tr>
+<tr>
+<td><strong>Outlet Flow</strong></td>
+<td>The final flow that directs particles out of the channel after separation. Particle properties, such as size and shape, affect the time taken to reach the outlet.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="hardware">Hardware</h3>
+<h3 id="eclipse-instrument-components">Eclipse Instrument Components</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Membranes</strong></td>
+<td>Made from polyethersulfone or regenerated cellulose with molecular weight cut-offs ranging between 2-30 kDa. Used in channels for filtration and separation. Custom membranes can be cut for specific needs.</td>
+<td>TN6006D Eclipse and Vision Handbook, Eclipse Channel Overview and Membrane Installation</td>
+</tr>
+<tr>
+<td><strong>Channel Modules</strong></td>
+<td>Channels available in various sizes (Short, Long, Dispersion Inlet, Semi-Prep) and compatible with both aqueous and organic solvents. Each channel can regulate temperature up to 50°C. Different spacers ensure proper channel sealing.</td>
+<td>TN6006D Eclipse and Vision Handbook, Channel Design Section</td>
+</tr>
+<tr>
+<td><strong>Inline Filters</strong></td>
+<td>Installed on the pump, cross flow, and dilution control module (DCM) ports. These filters help prevent particulate contamination and must be replaced periodically for optimal performance.</td>
+<td>TN6006D Eclipse and Vision Handbook, Bulkhead Frit Filter and Inline Filter Assemblies</td>
+</tr>
+<tr>
+<td><strong>Cross Flow and DCM Ports</strong></td>
+<td>Specialized flow ports for cross-flow separation and dilution control to enhance signal concentration without sacrificing resolution.</td>
+<td>TN6006D Eclipse and Vision Handbook, Side-Panel Connections</td>
+</tr>
+<tr>
+<td><strong>Temperature Regulator</strong></td>
+<td>Maintains a controlled environment for the channel and fluid pathways, essential for consistent analysis results.</td>
+<td>TN6006D Eclipse and Vision Handbook, Channel Temperature Regulator Connection</td>
+</tr>
+<tr>
+<td><strong>Fluid Leak Sensors</strong></td>
+<td>Positioned at multiple points for safety, these sensors detect leaks and automatically activate alarms, especially important for preventing damage when using solvents.</td>
+<td>TN6006D Eclipse and Vision Handbook, Eclipse Liquid and Vapor Leak Detection</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dawn-instrument-components">DAWN Instrument Components</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Flow Cell</strong></td>
+<td>Designed for minimal volume to allow small sample measurements. Composed of fused silica, optimal for refractive index measurements. The cell assembly includes glass windows aligned with the laser to measure scattered light.</td>
+<td>DAWN User’s Guide, Chapter 2, Flow Cell Design</td>
+</tr>
+<tr>
+<td><strong>Interference Filters</strong></td>
+<td>Filters attached to specific photodiodes to reduce background noise and improve measurement accuracy, particularly for samples that fluoresce under laser light.</td>
+<td>DAWN User’s Guide, Appendix E, Installing Interference Filters</td>
+</tr>
+<tr>
+<td><strong>WyattQELS Module</strong></td>
+<td>An embedded Dynamic Light Scattering module for real-time measurements of hydrodynamic radius, useful in both batch and online (in-line) configurations.</td>
+<td>DAWN User’s Guide, Chapter 1, Instrument Options and Accessories</td>
+</tr>
+<tr>
+<td><strong>Laser and Detectors</strong></td>
+<td>The DAWN’s laser measures at 18 angles simultaneously, which enhances the detection of light scattering for macromolecular analysis. The detectors are arranged strategically around the laser to capture a broad range of angles.</td>
+<td>DAWN User’s Guide, Chapter 2, Detector Placement</td>
+</tr>
+<tr>
+<td><strong>Inline Filters</strong></td>
+<td>Similar to the Eclipse, DAWN uses inline filters for both aqueous and organic applications. These filters prevent particulates from interfering with light scattering measurements.</td>
+<td>DAWN User’s Guide, Chapter 1, Inline Filter Kits</td>
+</tr>
+<tr>
+<td>==<strong>COMET Module</strong>[^c]==</td>
+<td>Ultrasonic transducer installed in the DAWN instrument that automatically cleans the flow cell to prevent particle buildup.</td>
+<td>DAWN User’s Guide, Instrument Options and Accessories</td>
+</tr>
+</tbody>
+</table>
+<h2 id="theory-and-key-concepts">Theory and Key Concepts</h2>
+<h3 id="hydrodynamic-radius-theory--calculation">Hydrodynamic Radius Theory &amp; Calculation</h3>
+<p>==add more theory descriptions, like uses?==</p>
+<p>The calculation of $r_h$ for this project is done though the following process:</p>
+<ol>
+<li>Calculate Intensity Autocorrelation Function $g_2(\tau)$:
+$$g_2(\tau)= \frac{\langle I(t) \cdot I(t+]tau \rangle}{ \langle I(t) \rangle ^2}$$</li>
+</ol>
+<p>Where:</p>
+<ul>
+<li>asd asdjasdhsajdh:</li>
+<li>$I(t)$ is the intensity at time $t$</li>
+<li>$\langle I \rangle$ is the mean intensity, and</li>
+<li>$ \tau$ is the delay time</li>
+</ul>
+<ol start="2">
+<li>Note Electric Field Autocorrelation Function $g_1 (\tau)$:
+$$g_1(\tau)=e^{(-\Gamma \tau)}$$</li>
+</ol>
+<p>Where $\Gamma$ is the decay rate.</p>
+<ol start="3">
+<li>Relate $g_2(\tau)$ to $g_1(\tau)$:</li>
+</ol>
+<p>$$g_2(\tau)=1+\beta |g_1(\tau)|^2$$
+Where $\beta$ is the experimental coherence factor, which is instrument specific (approximated as 1). ==why?? Expand on this==</p>
+<ol start="4">
+<li>Exponential Decay Fit, modelling $g_2(\tau)-1$ as:
+$$g_2(\tau)-1=Ae^{(-2\Gamma \tau)}$$</li>
+</ol>
+<p>Where $A$ is the amplitude</p>
+<ol start="5">
+<li>Calculate the Scattering Vector $q$ for each detector angle $\theta$:</li>
+</ol>
+<p>$$q=\frac{4\pi n}{\lambda} \sin{\left( \frac{\theta}{2}\right)}$$
+Where:</p>
+<ul>
+<li>$n$ is the refractive index of the solvent,</li>
+<li>$\lambda$ is the laser wavelength ($\text{nm}$), and</li>
+<li>$\theta$ is the scattering angle in degrees.</li>
+</ul>
+<ol start="6">
+<li>
+<p>Calculate the Diffusion Coefficient $D$, using its relationship to $\Gamma$:
+$$\Gamma=Dq^2 \Rightarrow D=\frac{\Gamma}{q^2}$$</p>
+</li>
+<li>
+<p>Use the Stokes-Einstein Equation to Calculate the $r_h$:
+$$D=\frac{k_B T}{6\pi \eta r_h} \Rightarrow r_h=\frac{k_B T}{6\pi \eta D}$$
+Where:</p>
+</li>
+</ol>
+<ul>
+<li>$k_B$ is the Boltzmann constant,</li>
+<li>$T$ is the absolute temperature, and</li>
+<li>$\eta$ is the viscosity of the solvent.</li>
+</ul>
+<blockquote>
+<p>Note: different detector angles provide multiple values for q, improving the accuracy of the calculated hydrodynamic radius by reducing uncertainty through averaging</p>
+</blockquote>
+<h3 id="molar-mass-theory-and-calculation">Molar Mass Theory and Calculation</h3>
+<blockquote>
+<p>This section requires many assumed values, as well as a refractometer for $dn/dc$ values, which is not currently available at NMI. ==discuss ways of doing calculation without RI detector==</p>
+</blockquote>
+<p>Where a sample with the required known values is used ==which values??==, Molar Mass $(M)$ can be obtained using the following steps:</p>
+<ol>
+<li>
+<p>Calibrate Detectors:</p>
+<ul>
+<li>Using a standard sample with known Rayleigh Ratio $R_{std}(\theta)$ and concentration $c_{std}$.</li>
+<li>Measure detector voltages $V_{std}(\theta)$ for the standard</li>
+</ul>
+</li>
+<li>
+<p>Calculate the Detector Constant $K_{detector}$:
+$$K_{detector}=\frac{R_{std}(\theta)}{V_{std}(\theta)}$$</p>
+</li>
+<li>
+<p>Compute Sample Rayleigh Ratios:
+$$R_{std}(\theta)=K_{detector} \cdot V_{sample}(\theta)$$</p>
+</li>
+<li>
+<p>Determine Sample Concentration $c$:
+$$A=\epsilon cl \Rightarrow c=\frac{A}{\epsilon l}$$
+Where:</p>
+</li>
+</ol>
+<ul>
+<li>$A$ is the absorbance from the UV data.</li>
+<li>$\epsilon$ is the molar extinction coefficient $(L \cdot \text{mol}^{-1} \cdot \text{cm}^{-1})$, and</li>
+<li>$l$ is the machine cell path length, in $\text{cm}$.</li>
+</ul>
+<ol start="5">
+<li>Calculate the Optical Constant $K$:
+$$K = \frac{4\pi^2 n^2 (dn/dc)^2}{N_A \lambda^4}$$
+Where:</li>
+</ol>
+<ul>
+<li>$n$ is the refractive index of the solvent,</li>
+<li>$dn/dc$ is the refractive index increment ($\text{mL}\cdot \text{g}^{-1}$),</li>
+<li>$N_A$ is Avogadro’s number, and</li>
+<li>$\lambda$ is the wavelength of the laser in $\text{cm}$.</li>
+</ul>
+<ol start="6">
+<li>Use the Rayleigh Equation to Calculate $M$: ==what is small v large (check astra user guide)==
+<ul>
+<li>
+<p>For Small Particles (Rayleigh Scattering):
+$$R(\theta)=KcM \Rightarrow M=\frac{R(\theta)}{Kc}$$</p>
+</li>
+<li>
+<p>For Larger Particles, incorporate the form factor $P(θ)$:
+$$R(\theta)=KcMP(\theta)$$</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>Where $P(\theta)=e^{-\frac{(qR_g)^2}{3}}$ is the form factor for spherical particles, and $r_g$ is the radius of gyration</p>
+<blockquote>
+<p>Note: This calculation assumes isotropic particles, and deviations may occur for non-spherical particles, which could lead to inaccuracies. Care should be taken to validate assumptions about particle shape during analysis.</p>
+</blockquote>
+<h2 id="data-analysis-and-processing">Data Analysis and Processing</h2>
+<h3 id="data-types">Data Types</h3>
+<ul>
+<li><strong>Time Data:</strong> Represents elapsed time during the fractionation process.</li>
+<li><strong>Raw Light Scattering Data:</strong> Intensity of scattered light recorded as particles are fractionated.</li>
+<li><strong>UV Absorbance Data:</strong> Absorbance recorded as a function of time to assess particle concentration.</li>
+<li>==Count rate==</li>
+</ul>
+<h3 id="python-code-overview">Python Code Overview</h3>
+<p>==to be completed once code is finalised==</p>
+<h4 id="useful-libraries">Useful Libraries</h4>
+<p>I have used the following libraries:</p>
+<ul>
+<li><code>pandas</code> for data manipulation and analysis, particularly with data structures like DataFrames, which are great for handling tabular data.</li>
+<li><code>numpy</code> for numerical computations in Python, providing support for large, multi-dimensional arrays and matrices. The library comes along with a collection of mathematical functions to operate on these arrays.</li>
+<li><code>matplotlib.pyplot</code>, which is a plotting library used for creating static, interactive, and animated visualizations in Python, particularly for 2D plots and graphs.</li>
+<li><code>scipy.signal.medfilt</code>, a function within the SciPy library’s signal processing module, used for applying a median filter to a signal, which is helpful in reducing noise in data.</li>
+<li>=='scipy.signal.find_peaks'== WRITE ABOUT</li>
+<li>==include the rest==</li>
+</ul>
+<h4 id="despiking-algorithm">Despiking Algorithm</h4>
+<p>Despiking is the process of identifying and removing extreme deviations (spikes) in data. Spikes in data are typically due to noise or external anomalies and do not represent the underlying signal. Example can be seen in the raw data plots in the Practical Notebook. There are three different despiking algorithms that I investigated and tested;</p>
+<ol>
+<li>Smoothing / Rolling Mean Method</li>
+<li>Z-Score Method</li>
+<li>Median Filter Method</li>
+</ol>
+<p><strong>Z-Score Method Equation</strong></p>
+<p>A z-score / Standard Score describes a value’s relationship to the mean of a group of values. It indicates how many standard deviations a data point is from the mean of the dataset. The formula for calculating the z-score of a value $x$ is:
+$$z=\frac{x-\mu}{\sigma}$$</p>
+<ul>
+<li>$x$ is the value being evaluated.</li>
+<li>$\mu$ is the mean of the dataset.</li>
+<li>$\sigma$ is the standard deviation of the dataset.</li>
+</ul>
+<p>Interpretation:</p>
+<ul>
+<li>A z-score of 0 means the data point is exactly at the mean.</li>
+<li>A positive z-score indicates the data point is above the mean.</li>
+<li>A negative z-score indicates the data point is below the mean.</li>
+<li>For example, a z-score of 2 means the data point is 2 standard deviations above the mean, while a z-score of -1.5 means it is 1.5 standard deviations below the mean.</li>
+</ul>
+<p><strong>Description Table</strong></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Applications</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Rolling Mean</strong></td>
+<td>A technique where each data point in a time series is replaced by the average of the neighboring points within a defined window. This method smooths the data by reducing the impact of random noise and spikes.</td>
+<td>Useful when the goal is to smooth out short-term fluctuations and highlight longer-term trends or cycles in the data. It’s commonly used in any context where gradual trends are more important than short-lived variations.</td>
+<td>While Rolling mean is useful for identifying overall trends, it can smooth out significant but brief variations (potentially losing important data features). Additionally, rolling mean is not very reliable at boundaries due to fewer points being available.</td>
+</tr>
+<tr>
+<td><strong>Z-Score</strong></td>
+<td>Involves calculating the standard score (Z-score) of each data point, which measures how many standard deviations a point is from the mean. Data points with Z-scores exceeding a certain threshold are considered outliers or spikes and can be replaced or removed.</td>
+<td>best suited for situations where outliers are expected to be rare and significantly different from the rest of the data, such as in sensor readings or quality control processes. It’s also useful when the data is approximately normally distributed.</td>
+<td>Useful for identifying significant outliers, it assumes that the data is normally distributed, which is not always the case.</td>
+</tr>
+<tr>
+<td><strong>Median Filter</strong></td>
+<td>A median filter replaces each data point with the median of its neighbors within a specified window. Unlike the rolling mean, the median filter is robust to outliers because the median is less affected by extreme values.</td>
+<td>Effective in applications where spikes are frequent but not indicative of true data trends, such as in image processing, environmental sensor data, or any scenario where random, sharp noise needs to be removed without distorting the underlying signal.</td>
+<td>Particularly useful to preserve sharp features / edges within the data.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>below markdown python formatting for reference</p>
+</blockquote>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-comment"># etc etc </span>
+</div></code></pre>
+<h4 id="peak-selection-algorithm">Peak Selection Algorithm</h4>
+<blockquote>
+<p>same as above</p>
+</blockquote>
+<h4 id="data-processing-techniques">Data Processing Techniques</h4>
+<ul>
+<li><strong>Baseline Correction:</strong> Removes baseline noise to provide a more accurate representation of peak data.</li>
+<li><strong>Peak Integration:</strong> Calculates the area under peaks to estimate size and concentration.</li>
+</ul>
+<h2 id="experiment-and-lab-work">Experiment and Lab Work</h2>
+<h3 id="data-comparisons-and-cross-validation">Data Comparisons and Cross-Validation</h3>
+<p><strong>30 August 2024</strong></p>
+<p>Image References
+: Lab Notes 2 PDF (LN2)</p>
+<p>Assisted Mar-Dean (MD) with comparing Polystyrene Latex (PSL) in SDS data across the two machines. The data for the 100nm particles is much nicer than the 20nm data when looking at the UV absorption dat, illustrated in ==Lab Notes 2 PDF, page 2==.</p>
+<p>The primary issue identified is that the UV plots follow a different pattern / have a different shape to the DLS data.</p>
+<p>Potential solutions to this issue were:</p>
+<ul>
+<li>Trying to emulate tested BSA method for use with PSL. Since BSA is ~5nm, it 'should' work on larger particles.</li>
+<li>Looking through the Wyatt handbook for 50nm particles and copying their methods to check if that works</li>
+</ul>
+<p>The Wyatt handbook for PSL with long channel (what NMI has) had the following method:</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Duration (min)</th>
+<th>Cross-flow Start (mL/min)</th>
+<th>Cross-flow end (mL/min)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Elution</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2. Elution</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3. Focus</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4. Focus Inject</td>
+<td>3</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>5. Focus</td>
+<td>6</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>6. Elution</td>
+<td>30</td>
+<td>0.5</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>7. Elution</td>
+<td>5</td>
+<td>0.5</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>8. Elution Inject</td>
+<td>10</td>
+<td>0.00</td>
+<td>0.00</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Step 1 was added by MD, as the machine tends to produce better results when allowed to 'ramp up'.</p>
+</blockquote>
+<h3 id="coffee-riffing-experiment">Coffee Riffing Experiment</h3>
+<p>Image References
+: 20240830 Coffee - Riffing 1
+: 20240830 Coffee - Riffing 2
+: 20240830 Coffee - Separation</p>
+<p><strong>Aim</strong></p>
+<p>We want to get a true representation of a bulk sample, removing bias that is added during things steps such as transport (e.g. truck driving the sample, which vibrates the sample and causes coffee to be dispersed by size).</p>
+<p><strong>Steps</strong></p>
+<ol>
+<li>Label everything</li>
+<li>Weigh the coffee</li>
+<li>Weigh the jars</li>
+<li>Line up the jars with riffler and attach all 8
+<ul>
+<li>Riffler before jar attachments
+<img src="/Lab Notes/Photos/Lab Work/20240830 Coffee - Riffing 1.jpg" alt="20240830 Coffee - Riffing 1"></li>
+<li>Riffler after attaching the jarks
+<img src="/Lab Notes/Photos/Lab Work/20240830 Coffee - Riffing 2.jpg" alt="20240830 Coffee - Riffing 2"></li>
+</ul>
+</li>
+</ol>
+<h2 id="references-and-annotated-bibliography-h-ref">References and Annotated Bibliography {h-ref}</h2>
+<blockquote>
+<h1 id="work-in-progress">==work in progress==</h1>
+<p>[^1]:
+Fix later</p>
+</blockquote>
+<p>Small Angle X-Ray Scattering (Terril) obtained from https://www.google.com/url?sa=t&amp;source=web&amp;rct=j&amp;opi=89978449&amp;url=https://www.diamond.ac.uk/dam/jcr:fb6f93b8-2cd2-4646-b6ae-4a426d85c19b/Scattering%2520101.pdf&amp;ved=2ahUKEwjQ0MvR64KJAxUtsVYBHaScNZ4QFnoECBUQAQ&amp;usg=AOvVaw2q9wDc-eUOsCVlJrGjzlkb</p>
+<p>==Guinier/Fournet, chapter 4==
+: Relationship between gyration radius and q</p>
+<p>Till, U., Gaucher-Delmas, M., Saint-Aguet, P., Hamon, G., Marty, J.-D., Chassenieux, C., Payré, B., Goudounèche, D., Mingotaud, A.-F., &amp; Violleau, F. (2014). Asymmetrical flow field-flow fractionation with multi-angle light scattering and quasi-elastic light scattering for characterization of polymersomes: comparison with classical techniques. Analytical and Bioanalytical Chemistry, 406(30), 7841–7853. https://doi.org/10.1007/s00216-014-7891-8</p>
+<p>Quattrini, F., Berrecoso, G., Crecente-Campo, J., &amp; Alonso, M. J. (2021). Asymmetric flow field-flow fractionation as a multifunctional technique for the characterization of polymeric nanocarriers. Drug Delivery and Translational Research, 11(2), 373–395. https://doi.org/10.1007/s13346-021-00918-5</p>
+<h2 id="check-these">==Check These==</h2>
+<p>[^c]: do we have this?</p>
+
+</body>
+</html>
