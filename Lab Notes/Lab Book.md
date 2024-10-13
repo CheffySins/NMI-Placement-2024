@@ -673,7 +673,7 @@ The aim for today was to:
 
 Steps followed:
 
-    <img src="./Photos/Lab Work/20240906 DLS PSL(NaCl) - Steps.jpg" alt="20240906 DLS PSL(NaCl) - Steps" />
+  <img src="./Photos/Lab Work/20240906 DLS PSL(NaCl) - Steps.jpg" alt="20240906 DLS PSL(NaCl) - Steps" />
 
 For this experiment, I:
 1. Prepared 10mMol NaCl, filtered using an air vacuum
