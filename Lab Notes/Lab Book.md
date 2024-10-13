@@ -35,7 +35,7 @@
     - [PSL in NaCl preparation](#psl-in-nacl-preparation)
     - [Remainder of Wet Lab Work](#remainder-of-wet-lab-work)
   - [References and Annotated Bibliography](#references-and-annotated-bibliography)
-  - [==Check These==](#check-these)
+    - [Footnotes](#footnotes)
 
 ## Project Overview
 > references can be done using [^1] and [^1]: at the end of the doc
@@ -82,17 +82,16 @@ The primary goal of this project is to develop a robust software solution for pr
 
 > This is a brief timeline and the tasks referenced  will be discussed further below.
 
-| Week | Task(s) | Image References |
-| ---- | ---- | ---------------- |
-|1|Choose a project and familiarise myself with the theory| |
-|2|- Lab Safety Induction <br>- Prepare solution of isopropanol for AF4 machine to stay in over the weekend <br>- Read up on relevant sections of MD's thesis| |
-|3|- Attend NMI award ceremony (online)| |
-|4|- Work on finte tuning code for the project<br>- Attend High Voltage lab tour| |
-|5|- Analyse and compare experiment results between the DLS and AF4 machines to validate data<br>- Investigate inconsistencies with UV plot data from AF4<br>- Shadow MD in wet lab coffee riffing experiment (client work)| |
-|6|- Problem solving and troubleshooting issues and deviations in MADLS and DLS experiments| |
-|7| | |
-|8| | |
-|9| | |
+| Week | Task(s)|
+| ---- | ---- |
+|1|Choose a project and familiarise myself with the theory|
+|2|- Lab Safety Induction <br>- Prepare solution of isopropanol for AF4 machine to stay in over the weekend <br>- Read up on relevant sections of MD's thesis|
+|3|- Attend NMI award ceremony (online)|
+|4|- Work on finte tuning code for the project<br>- Attend High Voltage lab tour|
+|5|- Analyse and compare experiment results between the DLS and AF4 machines to validate data<br>- Investigate inconsistencies with UV plot data from AF4<br>- Shadow MD in wet lab coffee riffing experiment (client work)|
+|6|- Problem solving and troubleshooting issues and deviations in MADLS and DLS experiments|
+|7|Helped MD trouble shoot issued with pressure build-up in AF4|
+|8 onward|Primarily worked on the code, and assisted where relevant with wet lab work, troubleshooting pressure builds upds, etc. |
 
 ## High-Level Overview and Background
 ### Field-Flow Fractionation (FFF) Overview
@@ -323,10 +322,6 @@ Time delay (correlation time) is the time interval used in DLS to measure how $g
 
 **Zimm Theory**
 : Zimm theory, often used in conjuction with static light scattering, describes the molecular weight, size, and shape of polymers in solution. The theory, developed by Bruno Zimm, includes a model that accounts for inter-molecular interactions and uses the concept of the **Zimm plot**, which plots the inverse of scattered light intensity against the scattering angle. The slope and intercept of the Zimm plot provide important parameters such as the **molecular weight, radius of gyration**, and **second virial coefficient**. Zimm modelling helps to understand polymer structure and dynamics, making it a fundamental tool in polymer chemistry and biochemistry.
-
-==comeback to this==
-* **Peak Detection:** ==maybe move to python section??== Identifies significant features in the scattering data to understand particle distribution behaviour.
-> ==What else???==
 
 ## FFF / AF4 Machine Technical Term and Component Definitions
 ### Software
@@ -700,6 +695,8 @@ Most of the remaining weeks was spent either writing code for the project, which
 
 Berne, B. J., & Pecora, R. (2000). Dynamic light scattering: with applications to chemistry, biology, and physics. Courier Corporation.
 
+Brown, W. (Ed.). (1996). Light scattering: Principles and development. Clarendon Press.
+
 Cho, T. J., & Hackley, V. A. (2010). Fractionation and characterization of gold nanoparticles in aqueous solution: asymmetric-flow field flow fractionation with MALS, DLS, and UV-Vis detection. *Analytical and Bioanalytical Chemistry, 398(5)*, 2003–2018. https://doi.org/10.1007/s00216-010-4133-6
 
 Guinier, A., Fournet, G., Walker, C. B., & Yudowitch, K. L. (1955). *Small-angle Scattering of X-rays*. New York: Wiley.
@@ -726,10 +723,9 @@ Wyatt Technology. (2020a). *Astra User's Guide* (MM1111 Rev. A). Wyatt Technolog
 
 Wyatt Technology. (2020b). *DAWN User's Guide* (M3220 Rev. B). Wyatt Technology Corporation.
 
+### Footnotes
+> This is also a running list that I'm constantly updating.
 
-
-## ==Check These==
-: References needed
 [^c]: Unsure if this one is used at NMI, I believe it is a default accessory.
 [^c-1]: Outline in report what dilute means, if relevant. It is set-up dependent.
 [^c-2]: Requires Refractive Index (RI) detector for most accurate measurement. Not available at NMI at the time of my placement.
