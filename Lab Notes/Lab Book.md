@@ -698,6 +698,8 @@ Most of the remaining weeks was spent either writing code for the project, which
 ## References and Annotated Bibliography
 > The list of references will continue to be expanded as I get more information.
 
+Berne, B. J., & Pecora, R. (2000). Dynamic light scattering: with applications to chemistry, biology, and physics. Courier Corporation.
+
 Cho, T. J., & Hackley, V. A. (2010). Fractionation and characterization of gold nanoparticles in aqueous solution: asymmetric-flow field flow fractionation with MALS, DLS, and UV-Vis detection. *Analytical and Bioanalytical Chemistry, 398(5)*, 2003–2018. https://doi.org/10.1007/s00216-010-4133-6
 
 Guinier, A., Fournet, G., Walker, C. B., & Yudowitch, K. L. (1955). *Small-angle Scattering of X-rays*. New York: Wiley.
@@ -707,6 +709,8 @@ Kato, H., Nakamura, A., Takahashi, K., & Kinugasa, S. (2012). Accurate size and 
 OriginLab. (2024). *Origin User Guide* (2024b). OriginLab Corporation.
 
 Pecora, R. (2000). Dynamic light scattering measurement of nanometer particles in liquids. Journal of Nanoparticle Research : An Interdisciplinary Forum for Nanoscale Science and Technology, 2(2), 123–131. https://doi.org/10.1023/A:1010067107182
+
+Podzimek, S. (2011). Light scattering, size exclusion chromatography and asymmetric flow field flow fractionation: powerful tools for the characterization of polymers, proteins and nanoparticles. John Wiley & Sons.
 
 Quattrini, F., Berrecoso, G., Crecente-Campo, J., & Alonso, M. J. (2021). Asymmetric flow field-flow fractionation as a multifunctional technique for the characterization of polymeric nanocarriers. *Drug Delivery and Translational Research, 11(2)*, 373–395. https://doi.org/10.1007/s13346-021-00918-5
 
